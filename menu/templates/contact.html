@@ -1,0 +1,216 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!-- ==========================================================
+                    PAGE SPECIFIC CSS
+========================================================== -->
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}">
+{% endblock %}
+
+<!-- ==========================================================
+                    PAGE CONTENT
+========================================================== -->
+
+{% block content %}
+
+<!-- ==========================================================
+                    CONTACT HERO
+========================================================== -->
+
+<section class="contact-hero">
+
+    <div class="contact-overlay">
+
+        <h1>Contact Us</h1>
+
+        <p>
+            We'd Love To Hear From You
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+                    CONTACT SECTION
+========================================================== -->
+
+<section class="contact-section">
+
+    <div class="contact-container">
+
+        <!-- ======================================================
+                        CONTACT INFORMATION
+        ======================================================= -->
+
+        <div class="contact-info">
+
+            <h2>Get In Touch</h2>
+
+            <p>
+                Have questions, feedback, or want to place a special order?
+                Feel free to contact us anytime. Our team is always ready
+                to help you.
+            </p>
+
+            <!-- Address -->
+
+            <div class="info-box">
+
+                <h3>📍 Address</h3>
+
+                <p>
+                    123 Food Street,<br>
+                    Taste City,<br>
+                    India
+                </p>
+
+            </div>
+
+            <!-- Phone -->
+
+            <div class="info-box">
+
+                <h3>📞 Phone</h3>
+
+                <p>
+                    +91 98765 43210
+                </p>
+
+            </div>
+
+            <!-- Email -->
+
+            <div class="info-box">
+
+                <h3>📧 Email</h3>
+
+                <p>
+                    flavourhub70@gmail.com
+                </p>
+
+            </div>
+
+            <!-- Working Hours -->
+
+            <div class="info-box">
+
+                <h3>🕒 Working Hours</h3>
+
+                <p>
+                    Monday - Sunday
+                    <br>
+                    10:00 AM - 11:00 PM
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- ======================================================
+                        CONTACT FORM
+        ======================================================= -->
+
+        <div class="contact-form">
+
+            <h2>Send Message</h2>
+
+            <form>
+
+                <input
+                    type="text"
+                    placeholder="Your Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    placeholder="Your Email"
+                    required
+                >
+
+                <input
+                    type="text"
+                    placeholder="Subject"
+                    required
+                >
+
+                <textarea
+                    rows="6"
+                    placeholder="Write Your Message..."
+                    required
+                ></textarea>
+
+                <button
+                    type="submit"
+                    class="primary-btn"
+                >
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+                    GOOGLE MAP
+========================================================== -->
+
+<section class="map-section">
+
+    <h2>Find Us</h2>
+
+    <div class="map-container">
+
+        <iframe
+            src="https://www.google.com/maps?q=New+Delhi&output=embed"
+            loading="lazy"
+            allowfullscreen>
+        </iframe>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+                    SOCIAL MEDIA
+========================================================== -->
+
+<section class="social-section">
+
+    <h2>Follow FlavorHub</h2>
+
+    <p>
+        Stay connected with us for exciting offers,
+        delicious meals, and daily updates.
+    </p>
+
+    <div class="social-icons">
+
+        <a href="#">
+            📘 Facebook
+        </a>
+
+        <a href="#">
+            📷 Instagram
+        </a>
+
+        <a href="#">
+            🐦 Twitter
+        </a>
+
+        <a href="#">
+            ▶ YouTube
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

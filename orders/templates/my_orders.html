@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+<!-- ==========================================================
+                    PAGE CSS
+========================================================== -->
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/my_orders.css' %}">
+
+{% endblock %}
+
+<!-- ==========================================================
+                    PAGE CONTENT
+========================================================== -->
+
+{% block content %}
+
+<section class="orders-section">
+
+    <!-- ======================================================
+                        PAGE HEADING
+    ======================================================= -->
+
+    <h1 class="orders-heading">
+
+        📦 My Orders
+
+    </h1>
+
+    {% if orders %}
+
+    <div class="orders-container">
+
+        {% for order in orders %}
+
+        <div class="order-card">
+
+            <!-- Order Number -->
+
+         <h2 class="order-title">
+
+    {{ order.order_summary }}
+
+</h2>
+
+<p class="order-number">
+
+    Order #
+
+    <strong>
+
+        {{ order.order_number }}
+
+    </strong>
+
+</p>
+            </p>
+
+            <!-- Grand Total -->
+
+            <p>
+
+                <strong>
+
+                    Total :
+
+                </strong>
+
+                ₹{{ order.grand_total }}
+
+            </p>
+
+            <!-- Status -->
+
+           <p>
+
+    <strong>
+
+        Status :
+
+    </strong>
+
+    <span class="status-badge status-{{ order.status|slugify }}">
+
+        {{ order.status }}
+
+    </span>
+
+</p>
+
+            <!-- Date -->
+
+            <p>
+
+                <strong>
+
+                    Ordered On :
+
+                </strong>
+
+                {{ order.created_at|date:"d M Y, h:i A" }}
+
+            </p>
+
+            <!-- View Details -->
+
+            <a
+                href="{% url 'order_detail' order.id %}"
+                class="details-btn"
+            >
+
+                View Details
+
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+
+    <div class="empty-orders">
+
+        <h2>
+
+            📭 No Orders Yet
+
+        </h2>
+
+        <p>
+
+            You haven't placed any orders yet.
+
+        </p>
+
+        <a
+            href="{% url 'menu' %}"
+            class="shop-btn"
+        >
+
+            Order Food
+
+        </a>
+
+    </div>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

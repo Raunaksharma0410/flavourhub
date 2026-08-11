@@ -1,0 +1,261 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+<!-- ==========================================================
+                    PAGE CSS
+========================================================== -->
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+
+{% endblock %}
+
+<!-- ==========================================================
+                    PAGE CONTENT
+========================================================== -->
+
+{% block content %}
+
+<section class="checkout-section">
+
+    <!-- ======================================================
+                        PAGE HEADING
+    ======================================================= -->
+
+    <h1 class="checkout-heading">
+
+        Checkout
+
+    </h1>
+
+    <div class="checkout-wrapper">
+
+        <!-- ==================================================
+                    DELIVERY FORM
+        =================================================== -->
+
+        <div class="checkout-form">
+
+            <h2>
+
+                Delivery Details
+
+            </h2>
+
+           <form method="POST">
+
+    {% csrf_token %}
+
+    <!-- Full Name -->
+
+    <label>
+
+        Full Name
+
+    </label>
+
+    <input
+        type="text"
+        name="full_name"
+        value="{{ request.user.get_full_name }}"
+        required
+    >
+
+    <!-- Email -->
+
+    <label>
+
+        Email Address
+
+    </label>
+
+    <input
+    type="email"
+    name="email"
+    value="{{ request.user.email }}"
+    required
+>
+
+    <!-- Phone -->
+
+    <label>
+
+        Phone Number
+
+    </label>
+
+    <input
+    type="text"
+    name="phone"
+    placeholder="9876543210"
+    maxlength="10"
+    required
+>
+    <!-- Address -->
+
+    <label>
+
+        Delivery Address
+
+    </label>
+
+    <textarea
+        name="address"
+        rows="4"
+        placeholder="House No, Street, Area..."
+        required
+    ></textarea>
+
+    <!-- Landmark -->
+
+    <label>
+
+        Landmark (Optional)
+
+    </label>
+
+    <input
+        type="text"
+        name="landmark"
+        placeholder="Near Hospital, Mall, etc."
+    >
+
+    <!-- Pincode -->
+
+    <label>
+
+        Pincode
+
+    </label>
+
+    <input
+    type="text"
+    name="pincode"
+    maxlength="6"
+    required
+>
+    <!-- Payment -->
+
+    <label>
+
+        Payment Method
+
+    </label>
+
+    <select name="payment_method">
+
+        <option value="COD">
+
+            Cash On Delivery
+
+        </option>
+
+    </select>
+
+    <button
+        type="submit"
+        class="place-order-btn"
+    >
+
+        Place Order
+
+    </button>
+
+</form>
+        </div>
+
+        <!-- ==================================================
+                    ORDER SUMMARY
+        =================================================== -->
+
+        <div class="checkout-summary">
+
+            <h2>
+
+                Order Summary
+
+            </h2>
+
+            {% for item in cart_items %}
+
+            <div class="summary-item">
+
+                <span>
+
+                    {{ item.food.name }}
+
+                    × {{ item.quantity }}
+
+                </span>
+
+                <span>
+
+                    ₹{{ item.subtotal }}
+
+                </span>
+
+            </div>
+
+            {% endfor %}
+
+            <hr>
+
+            <div class="summary-item">
+
+                <strong>
+
+                    Subtotal
+
+                </strong>
+
+                <strong>
+
+                    ₹{{ cart.total_price }}
+
+                </strong>
+
+            </div>
+
+            <div class="summary-item">
+
+                <strong>
+
+                    Delivery
+
+                </strong>
+
+                <strong>
+
+                    ₹40
+
+                </strong>
+
+            </div>
+
+            <hr>
+
+            <div class="summary-item total">
+
+                <strong>
+
+                    Grand Total
+
+                </strong>
+
+                <strong>
+
+                    ₹{{ cart.grand_total }}
+
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

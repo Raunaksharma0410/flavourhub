@@ -1,0 +1,163 @@
+/* ==========================================================
+                    REGISTER PAGE
+========================================================== */
+
+.register-section{
+
+    width:90%;
+
+    max-width:500px;
+
+    margin:70px auto;
+
+    background:#fff;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+
+}
+
+.register-section h2{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    color:#ff5722;
+
+    font-size:34px;
+
+}
+
+.register-section form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.register-section label{
+
+    font-weight:bold;
+
+    color:#333;
+
+}
+
+.register-section input{
+
+    padding:14px;
+
+    border:2px solid #ddd;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.register-section input:focus{
+
+    border-color:#ff5722;
+
+    outline:none;
+
+}
+
+.register-btn{
+
+    background:#ff5722;
+
+    color:#fff;
+
+    border:none;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.register-btn:hover{
+
+    background:#e64a19;
+
+}
+
+/* ==========================================================
+                    LOGIN LINK
+========================================================== */
+
+.login-link{
+
+    text-align:center;
+
+    margin-top:25px;
+
+}
+
+.login-link a{
+
+    color:#ff5722;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+.login-link a:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ==========================================================
+                    FORM ERRORS
+========================================================== */
+
+.errorlist{
+
+    list-style:none;
+
+    padding:0;
+
+    margin:5px 0;
+
+    color:#dc3545;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+}
+
+/* ==========================================================
+                    RESPONSIVE
+========================================================== */
+
+@media(max-width:600px){
+
+    .register-section{
+
+        padding:25px;
+
+    }
+
+}

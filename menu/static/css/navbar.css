@@ -1,0 +1,199 @@
+/* ==========================================================
+                    NAVBAR
+========================================================== */
+
+.header{
+
+    background:#fff;
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
+
+}
+
+/* ==========================================================
+                    NAVBAR CONTAINER
+========================================================== */
+
+.navbar{
+
+    width:90%;
+
+    max-width:1300px;
+
+    margin:auto;
+
+    height:80px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+/* ==========================================================
+                    WEBSITE LOGO
+========================================================== */
+
+.logo a{
+
+    text-decoration:none;
+
+    color:#ff5722;
+
+    font-size:34px;
+
+    font-weight:bold;
+
+}
+
+/* ==========================================================
+                    NAVIGATION LINKS
+========================================================== */
+
+.nav-links{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:35px;
+
+    margin-left:auto;
+
+}
+
+.nav-links a{
+
+    text-decoration:none;
+
+    color:#333;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover{
+
+    color:#ff5722;
+
+}
+
+/* ==========================================================
+                    USER NAME
+========================================================== */
+
+.nav-user{
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    color:#ff5722;
+
+    cursor:default;
+
+    margin-left:10px;
+
+}
+
+/* ==========================================================
+                    RESPONSIVE
+========================================================== */
+
+@media(max-width:900px){
+
+    .navbar{
+
+        flex-direction:column;
+
+        height:auto;
+
+        padding:20px 0;
+
+        gap:20px;
+
+    }
+
+    .nav-links{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+        margin-left:0;
+
+    }
+
+}
+/* ==========================================================
+                    USER NAME
+========================================================== */
+
+.nav-user{
+
+    display:flex;
+
+    align-items:center;
+
+    color:#ff5722;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:default;
+
+}
+/* ==========================================================
+                    ACTIVE NAV LINK
+========================================================== */
+
+.nav-links a.active-link{
+
+    color:#ff5722;
+
+    position:relative;
+
+}
+
+/* Underline */
+
+.nav-links a.active-link::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:100%;
+
+    height:3px;
+
+    background:#ff5722;
+
+    border-radius:5px;
+
+}
+
+/* Hover Effect */
+
+.nav-links a:hover{
+
+    color:#ff5722;
+
+}

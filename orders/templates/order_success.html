@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+<!-- ==========================================================
+                    PAGE CSS
+========================================================== -->
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/order_success.css' %}">
+
+{% endblock %}
+
+<!-- ==========================================================
+                    PAGE CONTENT
+========================================================== -->
+
+{% block content %}
+
+<section class="success-section">
+
+    <div class="success-card">
+
+        <div class="success-icon">
+
+            ✅
+
+        </div>
+
+        <h1>
+
+            Order Placed Successfully!
+
+        </h1>
+
+        <p>
+
+            Thank you for ordering from FlavorHub.
+
+        </p>
+
+        <div class="order-details">
+
+            <p>
+
+                <strong>Order Number:</strong>
+
+                {{ order.order_number }}
+
+            </p>
+            <p>
+
+    <strong>Items:</strong>
+
+    {{ order.order_summary }}
+
+</p>
+
+            <p>
+
+                <strong>Grand Total:</strong>
+
+                ₹{{ order.grand_total }}
+
+            </p>
+
+            <p>
+
+                <strong>Payment:</strong>
+
+                {{ order.get_payment_method_display }}
+
+            </p>
+
+            <p>
+
+                <strong>Status:</strong>
+
+                {{ order.status }}
+
+            </p>
+
+        </div>
+
+        <div class="success-buttons">
+
+            <a
+                href="{% url 'menu' %}"
+                class="continue-btn"
+            >
+
+                Continue Shopping
+
+            </a>
+
+            <a
+                href="{% url 'my_orders' %}"
+                class="orders-btn"
+            >
+
+                My Orders
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,305 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+<!-- ==========================================================
+                    PAGE CSS
+========================================================== -->
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/food_detail.css' %}">
+
+{% endblock %}
+
+<!-- ==========================================================
+                    PAGE CONTENT
+========================================================== -->
+
+{% block content %}
+
+<div class="detail-card">
+
+    <!-- ==================================================
+                    FOOD IMAGE
+    =================================================== -->
+
+    <div class="detail-image">
+
+        {% if food.image %}
+
+            <img
+                src="{{ food.image.url }}"
+                alt="{{ food.name }}"
+            >
+
+        {% else %}
+
+            <img
+                src="{% static 'images/default-food.jpg' %}"
+                alt="Food"
+            >
+
+        {% endif %}
+
+    </div>
+
+    <!-- ==================================================
+                    FOOD INFORMATION
+    =================================================== -->
+
+    <div class="detail-content">
+
+        <!-- Rating -->
+
+        <div class="food-rating">
+
+            ⭐⭐⭐⭐⭐
+
+            <span>4.9</span>
+
+        </div>
+
+        <!-- Food Name -->
+
+        <h1>
+
+            {{ food.name }}
+
+        </h1>
+
+        <!-- Price -->
+
+        <h2>
+
+            ₹{{ food.price }}
+
+        </h2>
+
+        <!-- Category -->
+
+        <div class="food-category">
+
+            {{ food.category.name }}
+
+        </div>
+
+        <!-- Availability -->
+
+        {% if food.available %}
+
+            <div class="food-status available">
+
+                ✅ Available
+
+            </div>
+
+        {% else %}
+
+            <div class="food-status unavailable">
+
+                ❌ Out Of Stock
+
+            </div>
+
+        {% endif %}
+
+        <!-- Description -->
+
+        <div class="description-box">
+
+            <h3>
+
+                Description
+
+            </h3>
+
+            <p>
+
+                {{ food.description }}
+
+            </p>
+
+        </div>
+
+        <!-- ==================================================
+                    ADD TO CART FORM
+        =================================================== -->
+
+        <form
+
+            method="POST"
+
+            action="{% url 'add_to_cart' food.id %}"
+
+            id="addToCartForm"
+
+        >
+
+            {% csrf_token %}
+
+            <!-- Quantity -->
+
+            <div class="quantity-section">
+
+                <h3>
+
+                    Quantity
+
+                </h3>
+
+                <div class="quantity-box">
+
+                    <button
+
+                        type="button"
+
+                        id="minusBtn"
+
+                    >
+
+                        −
+
+                    </button>
+
+                    <input
+
+                        type="number"
+
+                        name="quantity"
+
+                        id="quantity"
+
+                        value="1"
+
+                        min="1"
+
+                        readonly
+
+                    >
+
+                    <button
+
+                        type="button"
+
+                        id="plusBtn"
+
+                    >
+
+                        +
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Buttons -->
+
+            <div class="detail-buttons">
+
+                <button
+
+                    type="submit"
+
+                    class="add-cart-btn"
+
+                >
+
+                    🛒 Add To Cart
+
+                </button>
+
+               <button
+
+    type="submit"
+
+    formaction="{% url 'buy_now' food.id %}"
+
+    class="buy-btn"
+
+>
+
+    ⚡ Buy Now
+
+</button>
+
+            </div>
+
+        </form>
+
+        <!-- Back Button -->
+
+        <a
+
+            href="{% url 'menu' %}"
+
+            class="back-btn"
+
+        >
+
+            ← Back To Menu
+
+        </a>
+
+    </div>
+
+</div>
+
+<!-- ==========================================================
+                RELATED FOODS
+========================================================== -->
+
+{% if related_foods %}
+
+<h2 class="related-heading">
+
+    🔥 You May Also Like
+
+</h2>
+
+<div class="related-container">
+
+    {% for item in related_foods %}
+
+    <a
+
+        href="{% url 'food_detail' item.id %}"
+
+        class="related-card"
+
+    >
+
+        {% if item.image %}
+
+            <img
+
+                src="{{ item.image.url }}"
+
+                alt="{{ item.name }}"
+
+            >
+
+        {% endif %}
+
+        <h3>
+
+            {{ item.name }}
+
+        </h3>
+
+        <p>
+
+            ₹{{ item.price }}
+
+        </p>
+
+    </a>
+
+    {% endfor %}
+
+</div>
+
+{% endif %}
+
+{% endblock %}

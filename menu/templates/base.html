@@ -1,0 +1,236 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- ==========================================================
+                        HEAD SECTION
+========================================================== -->
+
+<head>
+
+    <!-- Basic Meta Information -->
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Website Title -->
+
+    <title>FlavorHub</title>
+
+    <!-- ==========================================================
+                        GLOBAL CSS
+========================================================== -->
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/messages.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    <!-- ==========================================================
+                    PAGE SPECIFIC CSS
+========================================================== -->
+
+    {% block extra_css %}
+    {% endblock %}
+
+</head>
+
+<body>
+
+<!-- ==========================================================
+                        HEADER
+========================================================== -->
+
+<header class="header">
+    <!-- ==========================================================
+                    DJANGO MESSAGES
+========================================================== -->
+
+{% if messages %}
+
+<div class="message-container">
+
+    {% for message in messages %}
+
+        <div class="alert {{ message.tags }}">
+
+            {{ message }}
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endif %}
+
+    <!-- ==========================================================
+                            NAVBAR
+    ========================================================== -->
+
+    <nav class="navbar">
+
+        <!-- ======================================================
+                            WEBSITE LOGO
+        ======================================================= -->
+
+        <div class="logo">
+
+            <a href="{% url 'home' %}">
+                🍕 FlavorHub
+            </a>
+
+        </div>
+
+        <!-- ======================================================
+                        NAVIGATION LINKS
+        ======================================================= -->
+
+        <div class="nav-links">
+
+            <!-- Home -->
+
+            <a
+    href="{% url 'home' %}"
+    class="{% if request.resolver_match.url_name == 'home' %}active-link{% endif %}"
+>
+    Home
+</a>
+
+            <!-- Menu -->
+
+           <a
+    href="{% url 'menu' %}"
+    class="{% if request.resolver_match.url_name == 'menu' %}active-link{% endif %}"
+>
+    Menu
+</a>
+
+            <!-- About -->
+
+          <a
+    href="{% url 'about' %}"
+    class="{% if request.resolver_match.url_name == 'about' %}active-link{% endif %}"
+>
+    About
+</a>
+
+            <!-- Contact -->
+
+          <a
+    href="{% url 'contact' %}"
+    class="{% if request.resolver_match.url_name == 'contact' %}active-link{% endif %}"
+>
+    Contact
+</a>
+
+            <!-- Cart (Always Visible) -->
+<a
+    href="{% url 'cart' %}"
+    class="{% if request.resolver_match.url_name == 'cart' %}active-link{% endif %}"
+>
+
+
+
+    🛒 Cart
+
+    {% if cart_count %}
+
+        ({{ cart_count }})
+
+    {% endif %}
+
+</a>
+            <!-- ==================================================
+                        USER AUTHENTICATION
+            =================================================== -->
+
+            {% if request.user.is_authenticated %}
+
+                <!-- Profile -->
+
+               <a
+    href="{% url 'profile' %}"
+    class="{% if request.resolver_match.url_name == 'profile' %}active-link{% endif %}"
+>
+    Profile
+</a>
+                <!-- Username -->
+
+                <span class="nav-user">
+
+                    👤 {{ request.user.get_full_name|default:request.user.username }}
+
+                </span>
+
+                <!-- Logout -->
+
+                <a href="{% url 'logout' %}">
+                    Logout
+                </a>
+
+            {% else %}
+
+                <!-- Login -->
+
+                <a href="{% url 'login' %}">
+                    Login
+                </a>
+
+                <!-- Register -->
+
+                <a href="{% url 'register' %}">
+                    Register
+                </a>
+
+            {% endif %}
+
+        </div>
+
+    </nav>
+
+</header>
+
+<!-- ==========================================================
+                        MAIN CONTENT
+========================================================== -->
+
+<main>
+
+    {% block content %}
+    {% endblock %}
+
+</main>
+
+<!-- ==========================================================
+                        FOOTER
+========================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <h2>
+            🍕 FlavorHub
+        </h2>
+
+        <p>
+            Fresh Food • Fast Delivery • Great Taste
+        </p>
+
+        <p>
+            © 2026 FlavorHub. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

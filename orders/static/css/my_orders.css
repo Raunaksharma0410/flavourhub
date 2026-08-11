@@ -1,0 +1,287 @@
+/* ==========================================================
+                    MY ORDERS
+========================================================== */
+
+.orders-section{
+
+    width:90%;
+
+    max-width:1200px;
+
+    margin:70px auto;
+
+}
+
+.orders-heading{
+
+    text-align:center;
+
+    font-size:46px;
+
+    margin-bottom:50px;
+
+}
+
+.orders-container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+.order-card{
+
+    background:#fff;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+    transition:.3s;
+
+}
+
+.order-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.order-card h2{
+
+    color:#ff5722;
+
+    margin-bottom:15px;
+
+}
+
+.order-items{
+
+    color:#555;
+
+    margin-bottom:15px;
+
+    line-height:1.7;
+
+}
+
+.order-card p{
+
+    margin-bottom:10px;
+
+    font-size:17px;
+
+}
+
+.details-btn{
+
+    display:inline-block;
+
+    margin-top:20px;
+
+    padding:12px 25px;
+
+    background:#ff5722;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.details-btn:hover{
+
+    background:#e64a19;
+
+}
+
+.empty-orders{
+
+    background:#fff;
+
+    padding:80px;
+
+    border-radius:20px;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+}
+
+.shop-btn{
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    background:#ff5722;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    padding:15px 35px;
+
+    border-radius:10px;
+
+    font-weight:bold;
+
+}
+
+.shop-btn:hover{
+
+    background:#e64a19;
+
+}
+
+@media(max-width:768px){
+
+    .orders-heading{
+
+        font-size:34px;
+
+    }
+
+}
+/* ==========================================================
+                    ORDER STATUS BADGES
+========================================================== */
+
+.status-badge{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:25px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    color:#fff;
+
+    margin-left:8px;
+
+}
+
+/* Pending */
+
+.status-pending{
+
+    background:#f4b400;
+
+}
+
+/* Confirmed */
+
+.status-confirmed{
+
+    background:#2196f3;
+
+}
+
+/* Preparing */
+
+.status-preparing{
+
+    background:#ff9800;
+
+}
+
+/* Out For Delivery */
+
+.status-out-for-delivery{
+
+    background:#9c27b0;
+
+}
+
+/* Delivered */
+
+.status-delivered{
+
+    background:#28a745;
+
+}
+
+/* Cancelled */
+
+.status-cancelled{
+
+    background:#dc3545;
+
+}
+/* ==========================================================
+                    PAYMENT BADGES
+========================================================== */
+
+.payment-badge {
+
+    display:inline-block;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+
+/* Pending */
+
+.payment-pending {
+
+    background:#fff3cd;
+
+    color:#856404;
+
+}
+
+
+/* Paid */
+
+.payment-paid {
+
+    background:#d4edda;
+
+    color:#155724;
+
+}
+
+
+/* Failed */
+
+.payment-failed {
+
+    background:#f8d7da;
+
+    color:#721c24;
+
+}
+
+
+/* Refunded */
+
+.payment-refunded {
+
+    background:#dbeafe;
+
+    color:#1e40af;
+
+}

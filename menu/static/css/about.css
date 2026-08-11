@@ -1,0 +1,276 @@
+/* ==========================================================
+                        ABOUT PAGE CSS
+========================================================== */
+
+
+/* ==========================================================
+                        ABOUT HERO
+========================================================== */
+
+.about-hero{
+    height:60vh;
+    background:url("../images/restaurant.jpg");
+    background-size:cover;
+    background-position:center;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.about-overlay{
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.55);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+    color:#fff;
+}
+
+.about-overlay h1{
+    font-size:65px;
+    margin-bottom:20px;
+}
+
+.about-overlay p{
+    font-size:22px;
+    letter-spacing:1px;
+}
+
+
+/* ==========================================================
+                    ABOUT SECTION
+========================================================== */
+
+.about-section{
+    width:90%;
+    max-width:1300px;
+    margin:80px auto;
+}
+
+.about-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:60px;
+}
+
+.about-image{
+    flex:1;
+}
+
+.about-image img{
+    width:100%;
+    border-radius:20px;
+    box-shadow:0 20px 40px rgba(0,0,0,.18);
+    transition:.4s;
+}
+
+.about-image img:hover{
+    transform:scale(1.04);
+}
+
+.about-content{
+    flex:1;
+}
+
+.about-content h2{
+    font-size:46px;
+    color:#222;
+    margin-bottom:20px;
+}
+
+.about-content p{
+    font-size:18px;
+    color:#666;
+    line-height:1.9;
+    margin-bottom:20px;
+}
+
+
+/* ==========================================================
+                    WHY CHOOSE US
+========================================================== */
+
+.why-us{
+    width:90%;
+    max-width:1300px;
+    margin:90px auto;
+    text-align:center;
+}
+
+.why-us h2{
+    font-size:45px;
+    margin-bottom:45px;
+}
+
+.why-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:30px;
+}
+
+.why-card{
+    background:#fff;
+    padding:35px;
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+    transition:.35s;
+}
+
+.why-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(0,0,0,.18);
+}
+
+.why-card h3{
+    color:#ff5722;
+    font-size:26px;
+    margin-bottom:18px;
+}
+
+.why-card p{
+    color:#666;
+    line-height:1.8;
+}
+
+
+/* ==========================================================
+                        STATISTICS
+========================================================== */
+
+.stats{
+    background:#ff5722;
+    padding:90px 20px;
+    color:#fff;
+    text-align:center;
+}
+
+.stats h2{
+    font-size:46px;
+    margin-bottom:50px;
+}
+
+.stats-container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:30px;
+}
+
+.stat-card{
+    background:#fff;
+    color:#333;
+    padding:35px;
+    border-radius:20px;
+    transition:.35s;
+}
+
+.stat-card:hover{
+    transform:translateY(-10px);
+}
+
+.stat-card h1{
+    font-size:55px;
+    color:#ff5722;
+    margin-bottom:12px;
+}
+
+.stat-card p{
+    font-size:20px;
+}
+
+
+/* ==========================================================
+                        MISSION
+========================================================== */
+
+.mission{
+    width:90%;
+    max-width:900px;
+    margin:90px auto;
+    text-align:center;
+}
+
+.mission h2{
+    font-size:46px;
+    margin-bottom:25px;
+}
+
+.mission p{
+    font-size:20px;
+    line-height:1.9;
+    color:#666;
+}
+
+
+/* ==========================================================
+                            CTA
+========================================================== */
+
+.about-cta{
+    background:#fff3ec;
+    padding:90px 20px;
+    text-align:center;
+}
+
+.about-cta h2{
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.about-cta p{
+    font-size:20px;
+    color:#666;
+    margin-bottom:40px;
+}
+
+
+/* ==========================================================
+                    ABOUT RESPONSIVE
+========================================================== */
+
+@media (max-width:900px){
+
+    .about-container{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .about-overlay h1{
+        font-size:46px;
+    }
+
+    .about-overlay p{
+        font-size:18px;
+    }
+
+    .about-content h2{
+        font-size:36px;
+    }
+
+}
+
+@media (max-width:600px){
+
+    .stats-container{
+        grid-template-columns:1fr;
+    }
+
+    .why-container{
+        grid-template-columns:1fr;
+    }
+
+    .about-cta h2{
+        font-size:38px;
+    }
+
+}

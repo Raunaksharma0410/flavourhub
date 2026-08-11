@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+<!-- ==========================================================
+                    PAGE CSS
+========================================================== -->
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+{% endblock %}
+
+<!-- ==========================================================
+                    PAGE CONTENT
+========================================================== -->
+
+{% block content %}
+
+<section class="register-section">
+
+    <div class="register-card">
+
+        <!-- ======================================================
+                            LOGO
+        ======================================================= -->
+
+        <div class="register-logo">
+
+            🍕 FlavorHub
+
+        </div>
+
+        <!-- ======================================================
+                            HEADING
+        ======================================================= -->
+
+        <h2>
+
+            Create Account
+
+        </h2>
+
+        <p class="register-subtitle">
+
+            Join FlavorHub and enjoy delicious food delivered to your doorstep.
+
+        </p>
+
+        <!-- ======================================================
+                        DJANGO MESSAGES
+        ======================================================= -->
+
+        {% if messages %}
+
+            {% for message in messages %}
+
+                <div class="message {{ message.tags }}">
+
+                    {{ message }}
+
+                </div>
+
+            {% endfor %}
+
+        {% endif %}
+
+        <!-- ======================================================
+                            REGISTER FORM
+        ======================================================= -->
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            <!-- Username -->
+
+            <label>
+
+                Username
+
+            </label>
+
+            {{ form.username }}
+
+            {% if form.username.errors %}
+
+                <div class="errorlist">
+
+                    {{ form.username.errors }}
+
+                </div>
+
+            {% endif %}
+
+            <!-- Email -->
+
+            <label>
+
+                Email Address
+
+            </label>
+
+            {{ form.email }}
+
+            {% if form.email.errors %}
+
+                <div class="errorlist">
+
+                    {{ form.email.errors }}
+
+                </div>
+
+            {% endif %}
+
+            <!-- Password -->
+
+            <label>
+
+                Password
+
+            </label>
+
+            {{ form.password1 }}
+
+            {% if form.password1.errors %}
+
+                <div class="errorlist">
+
+                    {{ form.password1.errors }}
+
+                </div>
+
+            {% endif %}
+
+            <!-- Confirm Password -->
+
+            <label>
+
+                Confirm Password
+
+            </label>
+
+            {{ form.password2 }}
+
+            {% if form.password2.errors %}
+
+                <div class="errorlist">
+
+                    {{ form.password2.errors }}
+
+                </div>
+
+            {% endif %}
+
+            <!-- Register Button -->
+
+            <button
+
+                type="submit"
+
+                class="register-btn"
+
+            >
+
+                Create Account
+
+            </button>
+
+        </form>
+
+        <!-- ======================================================
+                        LOGIN LINK
+        ======================================================= -->
+
+        <div class="login-link">
+
+            Already have an account?
+
+            <a href="{% url 'login' %}">
+
+                Login
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

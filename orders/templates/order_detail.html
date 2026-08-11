@@ -1,0 +1,519 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+<!-- ==========================================================
+                    PAGE CSS
+========================================================== -->
+
+{% block extra_css %}
+
+<link
+    rel="stylesheet"
+    href="{% static 'css/order_detail.css' %}"
+>
+
+{% endblock %}
+
+
+<!-- ==========================================================
+                    PAGE CONTENT
+========================================================== -->
+
+{% block content %}
+
+<section class="order-detail-section">
+
+
+    <!-- ======================================================
+                    PAGE HEADING
+    ======================================================= -->
+
+    <h1 class="page-heading">
+
+        Order Details
+
+    </h1>
+
+
+    <!-- ======================================================
+                    ORDER INFORMATION
+    ======================================================= -->
+
+    <div class="order-info">
+
+        <h2>
+
+            {{ order.order_number }}
+
+        </h2>
+
+
+        <div class="info-grid">
+
+
+            <!-- ==================================================
+                        ORDER STATUS
+            =================================================== -->
+
+            <p>
+
+                <strong>
+
+                    Status :
+
+                </strong>
+
+
+                {% if order.status == "Pending" %}
+
+                    <span class="status-badge status-pending">
+
+                        🟡 Pending
+
+                    </span>
+
+
+                {% elif order.status == "Confirmed" %}
+
+                    <span class="status-badge status-confirmed">
+
+                        🔵 Confirmed
+
+                    </span>
+
+
+                {% elif order.status == "Preparing" %}
+
+                    <span class="status-badge status-preparing">
+
+                        🍳 Preparing
+
+                    </span>
+
+
+                {% elif order.status == "Out For Delivery" %}
+
+                    <span class="status-badge status-out-for-delivery">
+
+                        🚚 Out For Delivery
+
+                    </span>
+
+
+                {% elif order.status == "Delivered" %}
+
+                    <span class="status-badge status-delivered">
+
+                        ✅ Delivered
+
+                    </span>
+
+
+                {% elif order.status == "Cancelled" %}
+
+                    <span class="status-badge status-cancelled">
+
+                        ❌ Cancelled
+
+                    </span>
+
+                {% endif %}
+
+            </p>
+
+
+            <!-- ==================================================
+                        PAYMENT METHOD
+            =================================================== -->
+
+            <p>
+
+                <strong>
+
+                    Payment :
+
+                </strong>
+
+                {{ order.get_payment_method_display }}
+
+            </p>
+
+
+            <!-- ==================================================
+                        PAYMENT STATUS
+            =================================================== -->
+
+            <p>
+
+                <strong>
+
+                    Payment Status :
+
+                </strong>
+
+
+                {% if order.payment_status == "Pending" %}
+
+                    <span class="payment-badge payment-pending">
+
+                        🟡 Pending
+
+                    </span>
+
+
+                {% elif order.payment_status == "Paid" %}
+
+                    <span class="payment-badge payment-paid">
+
+                        🟢 Paid
+
+                    </span>
+
+
+                {% elif order.payment_status == "Failed" %}
+
+                    <span class="payment-badge payment-failed">
+
+                        🔴 Failed
+
+                    </span>
+
+
+                {% elif order.payment_status == "Refunded" %}
+
+                    <span class="payment-badge payment-refunded">
+
+                        🔵 Refunded
+
+                    </span>
+
+                {% endif %}
+
+            </p>
+
+
+            <!-- ==================================================
+                        ORDER DATE
+            =================================================== -->
+
+            <p>
+
+                <strong>
+
+                    Ordered On :
+
+                </strong>
+
+                {{ order.created_at|date:"d M Y h:i A" }}
+
+            </p>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ======================================================
+                    ORDER ITEMS
+    ======================================================= -->
+
+    <div class="items-card">
+
+        <h2>
+
+            Ordered Items
+
+        </h2>
+
+
+        {% for item in order.items.all %}
+
+            <div class="item-row">
+
+
+                <!-- ==============================
+                        FOOD INFORMATION
+                =============================== -->
+
+                <div>
+
+                    <h3>
+
+                        {{ item.food_name }}
+
+                    </h3>
+
+
+                    <p>
+
+                        ₹{{ item.price }}
+
+                        ×
+
+                        {{ item.quantity }}
+
+                    </p>
+
+                </div>
+
+
+                <!-- ==============================
+                        ITEM SUBTOTAL
+                =============================== -->
+
+                <h3>
+
+                    ₹{{ item.subtotal }}
+
+                </h3>
+
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+
+
+    <!-- ======================================================
+                    PRICE SUMMARY
+    ======================================================= -->
+
+    <div class="summary-card">
+
+
+        <!-- ==============================
+                    SUBTOTAL
+        =============================== -->
+
+        <div class="summary-row">
+
+            <span>
+
+                Subtotal
+
+            </span>
+
+            <span>
+
+                ₹{{ order.subtotal }}
+
+            </span>
+
+        </div>
+
+
+        <!-- ==============================
+                    DELIVERY
+        =============================== -->
+
+        <div class="summary-row">
+
+            <span>
+
+                Delivery
+
+            </span>
+
+            <span>
+
+                ₹{{ order.delivery_charge }}
+
+            </span>
+
+        </div>
+
+
+        <!-- ==============================
+                    DISCOUNT
+        =============================== -->
+
+        <div class="summary-row">
+
+            <span>
+
+                Discount
+
+            </span>
+
+            <span>
+
+                ₹{{ order.discount }}
+
+            </span>
+
+        </div>
+
+
+        <!-- ==============================
+                    GRAND TOTAL
+        =============================== -->
+
+        <div class="summary-row total">
+
+            <span>
+
+                Grand Total
+
+            </span>
+
+            <span>
+
+                ₹{{ order.grand_total }}
+
+            </span>
+
+        </div>
+
+
+        <!-- ==================================================
+                    CANCEL ORDER
+        =================================================== -->
+
+        {% if order.status == "Pending" or order.status == "Confirmed" %}
+
+            <div class="cancel-order-section">
+
+                <form
+
+                    method="POST"
+
+                    action="{% url 'cancel_order' order.id %}"
+
+                    onsubmit="return confirm('Are you sure you want to cancel this order?');"
+
+                >
+
+                    {% csrf_token %}
+
+
+                    <button
+
+                        type="submit"
+
+                        class="cancel-order-btn"
+
+                    >
+
+                        ❌ Cancel Order
+
+                    </button>
+
+
+                </form>
+
+            </div>
+
+        {% endif %}
+
+
+    </div>
+
+
+
+    <!-- ======================================================
+                    DELIVERY ADDRESS
+    ======================================================= -->
+
+    <div class="address-card">
+
+        <h2>
+
+            Delivery Address
+
+        </h2>
+
+
+        <p>
+
+            <strong>
+
+                Name:
+
+            </strong>
+
+            {{ order.full_name }}
+
+        </p>
+
+
+        <p>
+
+            <strong>
+
+                Phone:
+
+            </strong>
+
+            {{ order.phone }}
+
+        </p>
+
+
+        <p>
+
+            <strong>
+
+                Email:
+
+            </strong>
+
+            {{ order.email }}
+
+        </p>
+
+
+        <p>
+
+            <strong>
+
+                Address:
+
+            </strong>
+
+            {{ order.address }}
+
+        </p>
+
+
+        {% if order.landmark %}
+
+            <p>
+
+                <strong>
+
+                    Landmark:
+
+                </strong>
+
+                {{ order.landmark }}
+
+            </p>
+
+        {% endif %}
+
+
+        <p>
+
+            <strong>
+
+                Pincode:
+
+            </strong>
+
+            {{ order.pincode }}
+
+        </p>
+
+
+    </div>
+
+
+</section>
+
+{% endblock %}

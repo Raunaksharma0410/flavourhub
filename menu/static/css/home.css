@@ -1,0 +1,144 @@
+/* ==========================================================
+                        HOME HERO
+========================================================== */
+
+.hero{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+    padding:80px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:60px;
+    min-height:85vh;
+}
+
+.hero-content{
+    flex:1;
+}
+
+.hero-tag{
+    color:#ff5722;
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.hero-title{
+    font-size:76px;
+    font-weight:800;
+    line-height:1.2;
+    margin-bottom:25px;
+    color:#222;
+}
+
+.hero-description{
+    font-size:20px;
+    color:#666;
+    line-height:1.8;
+    max-width:600px;
+    margin-bottom:40px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+/* ==========================================================
+                        BUTTONS
+========================================================== */
+
+.primary-btn,
+.secondary-btn{
+    padding:16px 34px;
+    border-radius:12px;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+    transition:all .3s ease;
+}
+
+.primary-btn{
+    background:#ff5722;
+    color:#fff;
+    box-shadow:0 10px 25px rgba(255,87,34,.35);
+}
+
+.primary-btn:hover{
+    background:#e64a19;
+    transform:translateY(-5px);
+}
+
+.secondary-btn{
+    border:2px solid #ff5722;
+    color:#ff5722;
+    background:#fff;
+}
+
+.secondary-btn:hover{
+    background:#ff5722;
+    color:#fff;
+    transform:translateY(-5px);
+}
+
+/* ==========================================================
+                        HERO IMAGE
+========================================================== */
+
+.hero-image{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+.hero-image img{
+    width:100%;
+    max-width:620px;
+    border-radius:25px;
+    object-fit:cover;
+    box-shadow:0 25px 60px rgba(0,0,0,.2);
+    animation:float 4s ease-in-out infinite;
+}
+
+/* Floating animation */
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+/* ==========================================================
+                    HOME RESPONSIVE
+========================================================== */
+
+@media(max-width:900px){
+
+    .hero{
+        flex-direction:column-reverse;
+        text-align:center;
+        min-height:auto;
+    }
+
+    .hero-title{
+        font-size:52px;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+}

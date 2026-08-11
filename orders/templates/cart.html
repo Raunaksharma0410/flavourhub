@@ -1,0 +1,252 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+<!-- ==========================================================
+                    PAGE CSS
+========================================================== -->
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+
+{% endblock %}
+
+<!-- ==========================================================
+                    PAGE CONTENT
+========================================================== -->
+
+{% block content %}
+
+<section class="cart-section">
+
+    <!-- ======================================================
+                        PAGE HEADING
+    ======================================================= -->
+
+    <h1 class="cart-heading">
+
+        🛒 My Cart
+
+    </h1>
+
+    {% if cart_items %}
+
+    <div class="cart-wrapper">
+
+        <!-- ==================================================
+                        CART ITEMS
+        =================================================== -->
+
+        <div class="cart-items">
+
+            {% for item in cart_items %}
+
+            <div class="cart-card">
+
+                <!-- ===============================
+                        FOOD IMAGE
+                ================================ -->
+
+                <div class="cart-image">
+
+                    {% if item.food.image %}
+
+                    <img
+                        src="{{ item.food.image.url }}"
+                        alt="{{ item.food.name }}"
+                    >
+
+                    {% endif %}
+
+                </div>
+
+                <!-- ===============================
+                        FOOD DETAILS
+                ================================ -->
+
+                <div class="cart-content">
+
+                    <h2>
+
+                        {{ item.food.name }}
+
+                    </h2>
+
+                    <p class="cart-price">
+
+                        ₹{{ item.food.price }}
+
+                    </p>
+
+                    <!-- Quantity -->
+
+                    <div class="quantity-box">
+
+                        <a
+                            href="{% url 'decrease_quantity' item.id %}"
+                            class="qty-btn"
+                        >
+
+                            −
+
+                        </a>
+
+                        <span class="qty-number">
+
+                            {{ item.quantity }}
+
+                        </span>
+
+                        <a
+                            href="{% url 'increase_quantity' item.id %}"
+                            class="qty-btn"
+                        >
+
+                            +
+
+                        </a>
+
+                    </div>
+
+                    <!-- Subtotal -->
+
+                    <p>
+
+                        <strong>
+
+                            Subtotal :
+
+                        </strong>
+
+                        ₹{{ item.subtotal }}
+
+                    </p>
+
+                    <!-- Remove -->
+
+                    <a
+                        href="{% url 'remove_from_cart' item.id %}"
+                        class="remove-btn"
+                    >
+
+                        🗑 Remove Item
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        <!-- ==================================================
+                        ORDER SUMMARY
+        =================================================== -->
+
+        <div class="cart-summary">
+
+            <h2>
+
+                Order Summary
+
+            </h2>
+
+            <div class="summary-row">
+
+                <span>
+
+                    Subtotal
+
+                </span>
+
+                <span>
+
+                    ₹{{ cart.total_price }}
+
+                </span>
+
+            </div>
+
+            <div class="summary-row">
+
+                <span>
+
+                    Delivery
+
+                </span>
+
+                <span>
+
+                    ₹40
+
+                </span>
+
+            </div>
+
+            <div class="summary-row total">
+
+                <span>
+
+                    Grand Total
+
+                </span>
+
+                <span>
+
+                    ₹{{ cart.grand_total }}
+
+                </span>
+
+            </div>
+             <a
+    href="{% url 'checkout' %}"
+    class="checkout-btn"
+>
+
+    Proceed To Checkout
+
+</a>
+
+        </div>
+
+    </div>
+
+    {% else %}
+
+    <!-- ==================================================
+                    EMPTY CART
+    =================================================== -->
+
+    <div class="empty-cart">
+
+        <h2>
+
+            🛒 Your Cart Is Empty
+
+        </h2>
+
+        <p>
+
+            Add your favourite food to get started.
+
+        </p>
+
+        <a
+            href="{% url 'menu' %}"
+            class="shop-btn"
+        >
+
+            Browse Menu
+
+        </a>
+
+    </div>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

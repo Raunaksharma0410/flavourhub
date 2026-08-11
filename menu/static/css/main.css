@@ -1,0 +1,214 @@
+/* ==========================================================
+                    SCROLL BUTTON
+========================================================== */
+
+#scrollTopBtn{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    width:55px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#ff5722;
+
+    color:#fff;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+
+    transition:.3s;
+
+    z-index:9999;
+
+}
+
+#scrollTopBtn:hover{
+
+    background:#e64a19;
+
+    transform:translateY(-5px);
+
+}
+
+
+/* ==========================================================
+                PASSWORD TOGGLE
+========================================================== */
+
+.password-toggle{
+
+    position:absolute;
+
+    right:15px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    user-select:none;
+
+}
+
+/* ==========================================================
+                PROFILE PREVIEW
+========================================================== */
+
+.profile-preview{
+
+    width:140px;
+
+    height:140px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    margin-top:15px;
+
+    border:4px solid #ff5722;
+
+    display:block;
+
+}
+
+/* ==========================================================
+                    BUTTON LOADER
+========================================================== */
+
+.loader{
+
+    width:18px;
+
+    height:18px;
+
+    border:3px solid rgba(255,255,255,.4);
+
+    border-top:3px solid #fff;
+
+    border-radius:50%;
+
+    display:inline-block;
+
+    animation:spin .7s linear infinite;
+
+    margin-right:10px;
+
+    vertical-align:middle;
+
+}
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+
+/* ==========================================================
+                DISABLED BUTTON
+========================================================== */
+
+button:disabled{
+
+    opacity:.7;
+
+    cursor:not-allowed;
+
+}
+
+/* ==========================================================
+                RIPPLE EFFECT
+========================================================== */
+
+button{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.ripple{
+
+    position:absolute;
+
+    width:20px;
+
+    height:20px;
+
+    background:rgba(255,255,255,.5);
+
+    border-radius:50%;
+
+    transform:scale(0);
+
+    animation:ripple-animation .6s linear;
+
+}
+
+@keyframes ripple-animation{
+
+    to{
+
+        transform:scale(20);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* ==========================================================
+                INPUT FOCUS
+========================================================== */
+
+.input-active{
+
+    transition:.3s;
+
+}
+
+.input-active input,
+
+.input-active textarea,
+
+.input-active select{
+
+    border-color:#ff5722 !important;
+
+    box-shadow:0 0 10px rgba(255,87,34,.25);
+
+}

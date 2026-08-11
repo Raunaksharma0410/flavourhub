@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!-- ==========================================================
+                    PAGE SPECIFIC CSS
+========================================================== -->
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+<!-- ==========================================================
+                    PAGE CONTENT
+========================================================== -->
+
+{% block content %}
+
+<!-- ==========================================================
+                        HERO SECTION
+========================================================== -->
+
+<section class="hero">
+
+    <!-- ======================================================
+                        HERO CONTENT
+    ======================================================= -->
+
+    <div class="hero-content">
+
+        <!-- Hero Tagline -->
+
+        <p class="hero-tag">
+            Fresh • Delicious • Fast Delivery
+        </p>
+
+        <!-- Main Heading -->
+
+        <h1 class="hero-title">
+
+            Good Food
+
+            <br>
+
+            Good Mood
+
+        </h1>
+
+        <!-- Hero Description -->
+
+        <p class="hero-description">
+
+            Experience the best taste made with fresh
+            ingredients and served with love.
+
+        </p>
+
+        <!-- Hero Buttons -->
+
+        <div class="hero-buttons">
+
+            <!-- Explore Menu Button -->
+
+            <a href="{% url 'menu' %}" class="primary-btn">
+
+                Explore Menu
+
+            </a>
+
+            <!-- Today's Special Button -->
+
+            <a href="#" class="secondary-btn">
+
+                Today's Special
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- ======================================================
+                        HERO IMAGE
+    ======================================================= -->
+
+    <div class="hero-image">
+
+        <img
+            src="{% static 'images/hero-pizza.png' %}"
+            alt="Delicious Pizza"
+        >
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,274 @@
+/* ==========================================================
+                    ORDER DETAIL
+========================================================== */
+
+.order-detail-section{
+
+    width:90%;
+
+    max-width:1100px;
+
+    margin:70px auto;
+
+}
+
+.page-heading{
+
+    text-align:center;
+
+    font-size:44px;
+
+    margin-bottom:45px;
+
+}
+
+.order-info,
+.items-card,
+.summary-card,
+.address-card{
+
+    background:#fff;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    margin-bottom:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+}
+
+.order-info h2{
+
+    color:#ff5722;
+
+    margin-bottom:20px;
+
+}
+
+.info-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:15px;
+
+}
+
+.item-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 0;
+
+    border-bottom:1px solid #eee;
+
+}
+
+.item-row:last-child{
+
+    border:none;
+
+}
+
+.item-row h3{
+
+    color:#222;
+
+    margin-bottom:8px;
+
+}
+
+.item-row p{
+
+    color:#666;
+
+}
+
+.summary-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin:18px 0;
+
+    font-size:18px;
+
+}
+
+.total{
+
+    border-top:2px solid #eee;
+
+    padding-top:20px;
+
+    font-size:24px;
+
+    color:#ff5722;
+
+    font-weight:bold;
+
+}
+
+.address-card p{
+
+    margin-bottom:12px;
+
+    color:#555;
+
+}
+
+@media(max-width:768px){
+
+    .item-row{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+    }
+
+}
+/* ==========================================================
+                    ORDER STATUS BADGES
+========================================================== */
+
+.status-badge{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:25px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    color:#fff;
+
+    margin-left:8px;
+
+}
+
+/* Pending */
+
+.status-pending{
+
+    background:#f4b400;
+
+}
+
+/* Confirmed */
+
+.status-confirmed{
+
+    background:#2196f3;
+
+}
+
+/* Preparing */
+
+.status-preparing{
+
+    background:#ff9800;
+
+}
+
+/* Out For Delivery */
+
+.status-out-for-delivery{
+
+    background:#9c27b0;
+
+}
+
+/* Delivered */
+
+.status-delivered{
+
+    background:#28a745;
+
+}
+
+/* Cancelled */
+
+.status-cancelled{
+
+    background:#dc3545;
+
+}
+/* ==========================================================
+                    CANCEL ORDER
+========================================================== */
+
+.cancel-order-section{
+
+    margin-top:18px;
+
+    padding-top:16px;
+
+    border-top:1px solid #eeeeee;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+}
+
+.cancel-order-btn{
+
+    border:none;
+
+    background:#ef4444;
+
+    color:#ffffff;
+
+    padding:12px 24px;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.cancel-order-btn:hover{
+
+    background:#dc2626;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 18px rgba(239,68,68,.25);
+
+}
+
+@media(max-width:576px){
+
+    .cancel-order-section{
+
+        justify-content:center;
+
+    }
+
+    .cancel-order-btn{
+
+        width:100%;
+
+    }
+
+}

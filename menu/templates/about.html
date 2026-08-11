@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<!-- ==========================================================
+                        ABOUT HERO
+========================================================== -->
+
+<section class="about-hero">
+    <div class="about-overlay">
+        <h1>About FlavorHub</h1>
+        <p>Fresh Food • Great Taste • Fast Delivery</p>
+    </div>
+</section>
+
+<!-- ==========================================================
+                        OUR STORY
+========================================================== -->
+
+<section class="about-section">
+
+    <div class="about-container">
+
+        <div class="about-image">
+            <img src="{% static 'images/restaurant.jpg' %}" alt="FlavorHub Restaurant">
+        </div>
+
+        <div class="about-content">
+
+            <h2>Our Story</h2>
+
+            <p>
+                FlavorHub was created with one simple mission:
+                to serve delicious, hygienic and affordable food
+                prepared with fresh ingredients and lots of love.
+            </p>
+
+            <p>
+                Whether you're enjoying dinner with your family,
+                ordering lunch at work, or satisfying a late-night
+                craving, FlavorHub is always ready to deliver
+                happiness to your doorstep.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+                    WHY CHOOSE US
+========================================================== -->
+
+<section class="why-us">
+
+    <h2>Why Choose FlavorHub?</h2>
+
+    <div class="why-container">
+
+        <div class="why-card">
+            <h3>🥗 Fresh Ingredients</h3>
+            <p>
+                We use only fresh vegetables, premium cheese
+                and quality spices every single day.
+            </p>
+        </div>
+
+        <div class="why-card">
+            <h3>👨‍🍳 Expert Chefs</h3>
+            <p>
+                Our experienced chefs prepare every dish
+                with perfection and care.
+            </p>
+        </div>
+
+        <div class="why-card">
+            <h3>🚚 Fast Delivery</h3>
+            <p>
+                Enjoy hot and delicious food delivered
+                quickly to your doorstep.
+            </p>
+        </div>
+
+        <div class="why-card">
+            <h3>⭐ Premium Quality</h3>
+            <p>
+                Every order is checked carefully before
+                serving our customers.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+                    OUR ACHIEVEMENTS
+========================================================== -->
+
+<section class="stats">
+
+    <h2>Our Achievements</h2>
+
+    <div class="stats-container">
+
+        <div class="stat-card">
+            <h1>50+</h1>
+            <p>Delicious Foods</p>
+        </div>
+
+        <div class="stat-card">
+            <h1>10K+</h1>
+            <p>Happy Customers</p>
+        </div>
+
+        <div class="stat-card">
+            <h1>30 Min</h1>
+            <p>Average Delivery</p>
+        </div>
+
+        <div class="stat-card">
+            <h1>4.9★</h1>
+            <p>Customer Rating</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+                        OUR MISSION
+========================================================== -->
+
+<section class="mission">
+
+    <div class="mission-content">
+
+        <h2>Our Mission</h2>
+
+        <p>
+            Our mission is to provide healthy, tasty and
+            affordable meals while maintaining the highest
+            standards of quality and customer satisfaction.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ==========================================================
+                    CALL TO ACTION
+========================================================== -->
+
+<section class="about-cta">
+
+    <h2>Ready To Taste Something Amazing?</h2>
+
+    <p>
+        Browse our menu and discover your next favorite meal.
+    </p>
+
+    <a href="{% url 'menu' %}" class="primary-btn">
+        Explore Menu
+    </a>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,250 @@
+/* ==========================================================
+                    LOGIN PAGE
+========================================================== */
+
+.login-section{
+
+    width:90%;
+
+    max-width:450px;
+
+    margin:70px auto;
+
+    background:#fff;
+
+    padding:40px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+
+}
+
+.login-section h2{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+    color:#ff5722;
+
+    font-size:34px;
+
+}
+
+.login-section form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.login-section label{
+
+    font-weight:bold;
+
+    color:#333;
+
+}
+
+.login-section input{
+
+    padding:14px;
+
+    border:2px solid #ddd;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+.login-section input:focus{
+
+    border-color:#ff5722;
+
+    outline:none;
+
+}
+
+.login-btn{
+
+    background:#ff5722;
+
+    color:#fff;
+
+    border:none;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.login-btn:hover{
+
+    background:#e64a19;
+
+}
+
+/* ==========================================================
+                FORGOT PASSWORD
+========================================================== */
+
+.forgot-password{
+
+    text-align:center;
+
+    margin-top:15px;
+
+}
+
+.forgot-password a{
+
+    color:#ff5722;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+.forgot-password a:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ==========================================================
+                REGISTER LINK
+========================================================== */
+
+.register-link{
+
+    text-align:center;
+
+    margin-top:25px;
+
+}
+
+.register-link a{
+
+    color:#ff5722;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+.register-link a:hover{
+
+    text-decoration:underline;
+
+}
+
+/* ==========================================================
+                    RESPONSIVE
+========================================================== */
+
+@media(max-width:600px){
+
+    .login-section{
+
+        padding:25px;
+
+    }
+
+}
+/* ==========================================================
+                    ACTION BUTTONS
+========================================================== */
+
+.action-buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:30px;
+
+}
+
+.action-buttons a{
+
+    flex:1;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+/* Primary Button */
+
+.action-buttons .primary-btn{
+
+    background:#ff5722;
+
+    color:#fff;
+
+}
+
+.action-buttons .primary-btn:hover{
+
+    background:#e64a19;
+
+}
+
+/* Secondary Button */
+
+.action-buttons .secondary-btn{
+
+    background:#f5f5f5;
+
+    color:#333;
+
+    border:2px solid #ddd;
+
+}
+
+.action-buttons .secondary-btn:hover{
+
+    border-color:#ff5722;
+
+    color:#ff5722;
+
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+
+    .action-buttons{
+
+        flex-direction:column;
+
+    }
+
+}

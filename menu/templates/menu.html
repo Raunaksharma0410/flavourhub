@@ -1,0 +1,251 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!-- ==========================================================
+                    PAGE SPECIFIC CSS
+========================================================== -->
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/first.css' %}">
+{% endblock %}
+
+<!-- ==========================================================
+                    PAGE CONTENT
+========================================================== -->
+
+{% block content %}
+
+<!-- ==========================================================
+                        MENU SECTION
+========================================================== -->
+
+<section class="menu">
+
+    <!-- ======================================================
+                        PAGE HEADING
+    ======================================================= -->
+
+    <h1 class="menu-heading">
+        🍕 Our Menu
+    </h1>
+
+    <!-- ======================================================
+                    CATEGORY FILTER
+    ======================================================= -->
+
+    <div class="category-bar">
+
+        <!-- All Category -->
+
+        <a href="{% url 'menu' %}"
+           class="category-btn {% if not selected_category %}active-category{% endif %}">
+
+            All
+
+        </a>
+
+        <!-- Dynamic Categories -->
+
+        {% for category in categories %}
+
+            <a
+                href="?category={{ category.id }}"
+                class="category-btn {% if selected_category == category.id|stringformat:'s' %}active-category{% endif %}">
+
+                {{ category.name }}
+
+            </a>
+
+        {% endfor %}
+
+    </div>
+
+    <!-- ======================================================
+                        SEARCH BAR
+    ======================================================= -->
+
+    <form method="GET" class="search-form">
+
+        {% if request.GET.category %}
+
+            <input
+                type="hidden"
+                name="category"
+                value="{{ request.GET.category }}"
+            >
+
+        {% endif %}
+
+        <input
+            type="text"
+            name="search"
+            placeholder="🔍 Search Food..."
+            value="{{ request.GET.search }}"
+            class="search-input"
+        >
+
+        <button
+            type="submit"
+            class="search-btn"
+        >
+
+            Search
+
+        </button>
+
+    </form>
+
+    <!-- ======================================================
+                        FOOD CARDS
+    ======================================================= -->
+
+    <div class="food-container">
+
+        {% for food in foods %}
+
+        <!-- ==================================================
+                        SINGLE FOOD CARD
+        =================================================== -->
+
+        <div class="food-card">
+
+            <!-- ===============================================
+                            FOOD IMAGE
+            ================================================ -->
+
+            <a
+                href="{% url 'food_detail' food.id %}"
+                class="food-link"
+            >
+
+                <div class="food-image">
+
+                    {% if food.image %}
+
+                        <img
+                            src="{{ food.image.url }}"
+                            alt="{{ food.name }}"
+                        >
+
+                    {% endif %}
+
+                    {% if food.available %}
+
+                        <span class="badge available-badge">
+
+                            Available
+
+                        </span>
+
+                    {% else %}
+
+                        <span class="badge unavailable-badge">
+
+                            Out of Stock
+
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+            </a>
+
+            <!-- ===============================================
+                            FOOD CONTENT
+            ================================================ -->
+
+            <div class="food-content">
+
+                <!-- Food Name -->
+
+                <h2 class="food-name">
+
+                    <a
+                        href="{% url 'food_detail' food.id %}"
+                        class="food-link"
+                    >
+
+                        {{ food.name }}
+
+                    </a>
+
+                </h2>
+
+                <!-- Food Price -->
+
+                <p class="food-price">
+
+                    ₹{{ food.price }}
+
+                </p>
+
+                <!-- Food Description -->
+
+                <p class="food-description">
+
+                    {{ food.description }}
+
+                </p>
+<!-- ==================================================
+                ACTION BUTTONS
+=================================================== -->
+
+<div class="food-buttons">
+
+    <!-- View Details -->
+
+    <a
+        href="{% url 'food_detail' food.id %}"
+        class="detail-btn"
+    >
+
+        View Details
+
+    </a>
+
+    <!-- Add To Cart -->
+
+    <a
+        href="{% url 'add_to_cart' food.id %}"
+        class="cart-btn"
+    >
+
+        Add To Cart
+
+    </a>
+
+</div>
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <!-- ==================================================
+                        NO FOOD FOUND
+        =================================================== -->
+
+        <div class="no-food">
+
+            <h2>
+
+                🍽️ No Food Found
+
+            </h2>
+
+            <p>
+
+                We couldn't find any food matching your search.
+
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}
